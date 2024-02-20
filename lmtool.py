@@ -29,8 +29,11 @@ check_sudo()
 
 def install_python3():
     if sys.platform.startswith("linux"):
-        os.system("sudo apt update")
-        os.system("sudo apt install -y python3")
+        clearscreen()
+        py_input=("Python3 required, install now? (Y/N): ")
+        if py_input.lower() == "y":
+            os.system("sudo apt update")
+            os.system("sudo apt install -y python3")
     elif sys.platform.startswith("win"):
         print("Python 3 installation for Windows is not handled in this script. Please install Python 3 manually.")
         input("\nPress Enter to close this message...")

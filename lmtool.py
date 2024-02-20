@@ -16,6 +16,20 @@ import webbrowser
 import subprocess
 import ctypes
 
+def install_python3():
+    if sys.platform.startswith("linux"):
+        os.system("sudo apt update")
+        os.system("sudo apt install -y python3")
+    elif sys.platform.startswith("win"):
+        print("Python 3 installation for Windows is not handled in this script. Please install Python 3 manually.")
+        sys.exit(1)
+
+# Check if Python 3 is installed
+python_version = subprocess.check_output(["python3", "--version"]).decode().strip()
+if not python_version.startswith("Python 3"):
+    print("Python 3 is not installed. Installing Python 3...")
+    install_python3()
+
 def clearscreen():
     if sys.platform.startswith("linux"):
         os.system("clear")

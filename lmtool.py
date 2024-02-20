@@ -16,12 +16,24 @@ import webbrowser
 import subprocess
 import ctypes
 
+def check_sudo():
+    if sys.platform.startswith("win"):
+        print("I mean, I guess if you want it to completely not work\nyou can run it on windows...")
+        input("\nPress Enter to continue...")
+    elif os.geteuid() != 0:
+        print("Please run this script with sudo.")
+        input("\nPress Enter to close this message...")
+        sys.exit(1)
+
+check_sudo()
+
 def install_python3():
     if sys.platform.startswith("linux"):
         os.system("sudo apt update")
         os.system("sudo apt install -y python3")
     elif sys.platform.startswith("win"):
         print("Python 3 installation for Windows is not handled in this script. Please install Python 3 manually.")
+        input("\nPress Enter to close this message...")
         sys.exit(1)
 
 python_version = subprocess.check_output(["python3", "--version"]).decode().strip()
@@ -34,17 +46,6 @@ def clearscreen():
         os.system("clear")
     elif sys.platform.startswith("win"):
         os.system("cls")
-
-def check_sudo():
-    if sys.platform.startswith("win"):
-        print("I mean, I guess if you want it to completely not work\nyou can run it on windows...")
-        input("\nPress Enter to continue...")
-    elif os.geteuid() != 0:
-        print("Please run this script with sudo.")
-        input("\nPress Enter to close this message...")
-        sys.exit(1)
-
-check_sudo()
 
 def clearscreen():
     if sys.platform.startswith("linux"):

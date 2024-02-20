@@ -24,7 +24,6 @@ def install_python3():
         print("Python 3 installation for Windows is not handled in this script. Please install Python 3 manually.")
         sys.exit(1)
 
-# Check if Python 3 is installed
 python_version = subprocess.check_output(["python3", "--version"]).decode().strip()
 if not python_version.startswith("Python 3"):
     print("Python 3 is not installed. Installing Python 3...")

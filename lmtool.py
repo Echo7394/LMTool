@@ -16,8 +16,17 @@ import webbrowser
 import subprocess
 import ctypes
 
+def clearscreen():
+    if sys.platform.startswith("linux"):
+        os.system("clear")
+    elif sys.platform.startswith("win"):
+        os.system("cls")
+
 def check_sudo():
-    if os.geteuid() != 0:
+    if sys.platform.startswith("win"):
+        print("I mean, I guess if you want it to completely not work\nyou can run it on windows...")
+        input("\nPress Enter to continue...")
+    elif os.geteuid() != 0:
         print("Please run this script with sudo.")
         input("\nPress Enter to close this message...")
         sys.exit(1)
@@ -85,6 +94,16 @@ def remove_prog():
     
 while True:
     clearscreen()
+    print("""
+##################################
+# _     __  __ _____           _ #
+#| |   |  \/  |_   _|__   ___ | |#
+#| |   | |\/| | | |/ _ \ / _ \| |#
+#| |___| |  | | | | (_) | (_) | |#
+#|_____|_|  |_| |_|\___/ \___/|_|#
+##################################
+#    Because why the fuck not    #
+\n""")
     print("1. Update System")
     print("2. Install a Program")
     print("3. Remove a program")

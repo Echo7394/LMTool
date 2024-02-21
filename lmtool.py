@@ -41,7 +41,7 @@ def install_python3():
 
 python_version = subprocess.check_output(["python3", "--version"]).decode().strip()
 if not python_version.startswith("Python 3"):
-    print("Python 3 is not installed. Installing Python 3...")
+    print("Python 3 is not installed.")
     install_python3()
 
 def clearscreen():
@@ -115,11 +115,11 @@ while True:
 ##################################
 #    Because why the fuck not    #
 \n""")
+    print("0. Exit")
     print("1. Update System")
     print("2. Install a Program")
     print("3. Remove a program")
     print("4. Punch a Cow")
-    print("5. Exit")
     
     menuinput = input("\nChoose an Option: ")
     
@@ -146,11 +146,11 @@ while True:
         """)
         sleep(2)
         
-    if menuinput == "5":
+    if menuinput == "0":
         clearscreen()
         break
     
-    elif menuinput not in ["1","2","3","4","5"]:
+    elif menuinput not in ["0","1","2","3","4","5"]:
         clearscreen()
         print("Invalid Option, Try Again")
         input("\nPress Enter to Continue...")

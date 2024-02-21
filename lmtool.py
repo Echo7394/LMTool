@@ -50,24 +50,18 @@ def clearscreen():
     elif sys.platform.startswith("win"):
         os.system("cls")
 
-def clearscreen():
-    if sys.platform.startswith("linux"):
-        os.system("clear")
-    elif sys.platform.startswith("win"):
-        os.system("cls")
-
 def full_update():
     clearscreen()
     full_update_inp = input("Are you sure you want to update all programs (Y/N): ")
     if full_update_inp.lower() == "y" or "yes":
-        os.system("Sudo apt update -y && sudo apt upgrade -y")
+        os.system("sudo apt update -y && sudo apt upgrade -y")
         input("\n Update Finished. Press Enter to Continue...")
     else:
         return False
     
 def install_prog():
     clearscreen()
-    install_prog_inp = input("Type the canonical name of the program to install: ")
+    install_prog_inp = input("Type the (one word) name of the program to install: ")
     search_results = os.popen("apt-cache search " + install_prog_inp).readlines()
     if search_results:
         print("Top 5 matching programs:")
@@ -89,7 +83,7 @@ def install_prog():
     
 def remove_prog():
     clearscreen()
-    install_prog_inp = input("Type the canonical name of the program to remove: ")
+    install_prog_inp = input("Type the (one word) name of the program to remove: ")
     search_results = os.popen("apt-cache search " + install_prog_inp).readlines()
     if search_results:
         print("Top 5 matching programs:")

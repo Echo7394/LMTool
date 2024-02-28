@@ -205,7 +205,8 @@ def check_logs():
             if os.path.exists('/var/log/utmp'):
                 clearscreen()
                 try:
-                    utmpLog = os.popen(logPref+logSuf+"utmp").read()
+                    with open(logSuf + "utmp", "rb") as f:
+                        utmpLog = f.read().decode("utf-8", errors="ignore")
                     print(utmpLog)
                 except UnicodeDecodeError as e:
                     print(f"Error decoding wtmp log: {e}")
@@ -214,8 +215,9 @@ def check_logs():
             elif os.path.exists('/var/log/wtmp'):
                 clearscreen()
                 try:
-                    wtmpLog = os.popen(logPref+logSuf+"wtmp").read()
-                    print(wtmpLog)
+                    with open(logSuf + "wtmp", "rb") as f:
+                        wtmpLog = f.read().decode("utf-8", errors="ignore")
+                        print(wtmpLog)
                 except UnicodeDecodeError as e:
                     print(f"Error decoding wtmp log: {e}")
                 input("\nOutput Complete.\nPress Enter to continue...")

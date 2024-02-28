@@ -398,7 +398,8 @@ while True:
 #| |___| |  | | | | (_) | (_) | |#
 #|_____|_|  |_| |_|\___/ \___/|_|#
 ##################################
-#                                #
+# A multi-purpose tool for Linux #
+##  Licensed under GNU-GPL V3.  ##
 \n""")
     print("1. Update System")
     print("2. Install a Program")

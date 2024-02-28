@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 LMTool is a general purpose helper wizard for Debian based Linux
 Copyright (C) 2024 Echo7394

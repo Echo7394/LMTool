@@ -4,7 +4,7 @@
 
 1. Download all files and save to a directory of your choice.
 
-2. Open a terminal in the same directory as the install.sh file
+2. Open a terminal in the same directory as the install.sh and lmtool.py file
 
 3. run ```sudo chmod +x install.sh```
 4. then ```./install.sh```

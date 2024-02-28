@@ -1,1 +1,1 @@
-Tool to assist Linux Mint / Debian users with general administrative tasks
+Tool to assist Debian based Linux Users with general administrative tasks

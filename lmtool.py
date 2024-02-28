@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 '''
 LMTool is a general purpose helper wizard for Debian based Linux
 Copyright (C) 2024 Echo7394
@@ -25,7 +26,7 @@ import ctypes
 
 def check_sudo():
     if sys.platform.startswith("win"):
-        print("I mean, I guess if you want it to completely not work\nyou can run it on windows...")
+        print("I mean, you're on windows, this program isnt going to work, but you can try anyway...")
         input("\nPress Enter to continue...")
     elif os.geteuid() != 0:
         print("Please run this script with sudo.")
@@ -42,7 +43,7 @@ def install_python3():
             os.system("sudo apt update")
             os.system("sudo apt install -y python3")
     elif sys.platform.startswith("win"):
-        print("Python 3 installation for Windows is not handled in this script. Please install Python 3 manually.")
+        print("Python 3 installation for Windows is not handled in this script.")
         input("\nPress Enter to close this message...")
         sys.exit(1)
 

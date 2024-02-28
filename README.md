@@ -1,6 +1,6 @@
-Tool to assist Debian based Linux Users with general administrative tasks
+## Tool to assist Debian based Linux Users with general administrative tasks
 
-## Installation: 
+### Installation: 
 
 1. Download all files and save to a directory of your choice.
 

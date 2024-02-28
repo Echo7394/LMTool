@@ -291,10 +291,10 @@ def tor_prox_inst():
             curlTest = os.popen("curl -s api.ipify.org").read()
             curlTest2 = os.popen("proxychains curl -s api.ipify.org").read()
             clearscreen()
-            print("This is your TOR IP Address: "+curlTest)
+            print("This is your current IP Address: "+curlTest)
             input("Press Enter to continue...\n")
             finalCurl = curlTest2[-15:]
-            print("This is your new IP Address: "+finalCurl)
+            print("This is your new IP Address from TOR: "+finalCurl)
             input("\nIf both addresses are different, Proxy is active!\nPress Enter to continue...")
             
         if tormenu == "3":

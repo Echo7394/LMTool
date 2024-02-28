@@ -6,8 +6,8 @@
 
 2. Open a terminal in the same directory as the install.sh file
 
-3. run ```bash
+3. run ```
 sudo chmod +x install.sh```
-4. then ```bash
+4. then ```
 ./install.sh```
 5. Done! You should have an icon on your desktop.

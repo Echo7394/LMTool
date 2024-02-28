@@ -2,7 +2,7 @@ Tool to assist Debian based Linux Users with general administrative tasks
 
 ##H2 Installation: 
 
-1.Download all files and save to a directory of your choice.
+1. Download all files and save to a directory of your choice.
 
 2. Open a terminal in the same directory as the install.sh file
 

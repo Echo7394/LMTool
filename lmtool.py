@@ -149,8 +149,8 @@ def check_logs():
         if logChoice == "3":
             if os.path.exists('/var/log/kern.log'):
                 clearscreen()
-                authLog = os.popen(logPref+logSuf+"kern.log").read()
-                print(authLog)
+                kernLog = os.popen(logPref+logSuf+"kern.log").read()
+                print(kernLog)
                 input("\nOutput Complete.\nPress Enter to continue...")
                 break
             else:
@@ -160,13 +160,75 @@ def check_logs():
         if logChoice == "4":
             if os.path.exists('/var/log/cron.log'):
                 clearscreen()
-                authLog = os.popen(logPref+logSuf+"cron.log").read()
-                print(authLog)
+                cronLog = os.popen(logPref+logSuf+"cron.log").read()
+                print(cronLog)
                 input("\nOutput Complete.\nPress Enter to continue...")
                 break
             else:
                 input("\nNo such file or directory.\nPress Enter to continue...")
                 break
+
+        if logChoice == "5":
+            if os.path.exists('/var/log/maillog'):
+                clearscreen()
+                mailLog = os.popen(logPref+logSuf+"maillog").read()
+                print(mailLog)
+                input("\nOutput Complete.\nPress Enter to continue...")
+                break
+            else:
+                input("\nNo such file or directory.\nPress Enter to continue...")
+                break
+
+        if logChoice == "6":
+            if os.path.exists('/var/log/boot.log'):
+                clearscreen()
+                bootLog = os.popen(logPref+logSuf+"boot.log").read()
+                print(bootLog)
+                input("\nOutput Complete.\nPress Enter to continue...")
+                break
+            else:
+                input("\nNo such file or directory.\nPress Enter to continue...")
+                break
+
+        if logChoice == "7":
+            if os.path.exists('/var/log/mysqld.log'):
+                clearscreen()
+                mysqldLog = os.popen(logPref+logSuf+"mysqld.log").read()
+                print(mysqldLog)
+                input("\nOutput Complete.\nPress Enter to continue...")
+                break
+            else:
+                input("\nNo such file or directory.\nPress Enter to continue...")
+                break
+
+        if logChoice == "8":
+            if os.path.exists('/var/log/utmp'):
+                clearscreen()
+                try:
+                    utmpLog = os.popen(logPref+logSuf+"utmp").read()
+                    print(utmpLog)
+                except UnicodeDecodeError as e:
+                    print(f"Error decoding wtmp log: {e}")
+                input("\nOutput Complete.\nPress Enter to continue...")
+                break
+            elif os.path.exists('/var/log/wtmp'):
+                clearscreen()
+                try:
+                    wtmpLog = os.popen(logPref+logSuf+"wtmp").read()
+                    print(wtmpLog)
+                except UnicodeDecodeError as e:
+                    print(f"Error decoding wtmp log: {e}")
+                input("\nOutput Complete.\nPress Enter to continue...")
+            else:
+                input("\nNo such file or directory.\nPress Enter to continue...")
+                break
+
+        if logChoice == "9":
+            clearscreen()
+            os.system("sudo dmesg")
+            input("\nOutput Complete.\nPress Enter to continue...")
+            break
+            
         if logChoice == "10":
             break
         elif logChoice not in ["1","2","3","4","5","6","7","8","9","10"]:
@@ -334,7 +396,7 @@ while True:
 #| |___| |  | | | | (_) | (_) | |#
 #|_____|_|  |_| |_|\___/ \___/|_|#
 ##################################
-#    Because why the fuck not    #
+#                                #
 \n""")
     print("1. Update System")
     print("2. Install a Program")

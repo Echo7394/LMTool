@@ -10,6 +10,6 @@
 4. then ```./install.sh```
 5. Done! You should have an icon on your desktop.
 
-### Prerequisites:
+### Requirements:
 
 - Python3

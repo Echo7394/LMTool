@@ -327,18 +327,18 @@ def launch_browser(browser_command):
     except FileNotFoundError:
         clearscreen()
         print("Browser not found. Make sure it's installed and in the correct path.")
-        time.sleep(2)
+        input("Press Enter to continue...")
     except (ValueError, IndexError):
         print("Couldn't launch browser")
 
 def tor_prox_inst():
     while True:
         clearscreen()
-        print("YOU MUST LAUNCH YOUR PROGRAM USING OPTION 3 FOR THE VPN TO BE ACTIVE")
+        print("YOU MUST LAUNCH THE BROWSER USING OPTION 3 FOR THE VPN TO BE ACTIVE.")
         print("####################################################################\n\n")
         print("1. Install TOR and ProxyChains")
         print("2. Test VPN")
-        print("3. Launch Program with VPN")
+        print("3. Launch Browser with VPN")
         print("4. Back")
         tormenu = input("\nChoose an option: ")
 
@@ -372,7 +372,9 @@ def tor_prox_inst():
         if tormenu == "3":
             current_username = get_current_username()
             if current_username:
-                if os.path.exists("/usr/bin/google-chrome"):
+                if os.path.exists("/usr/bin/thorium-browser"):
+                    browser_process = launch_browser(["sudo", "-u", current_username, "proxychains", "thorium-browser", "--no-sandbox"])
+                elif os.path.exists("/usr/bin/google-chrome"):
                     browser_process = launch_browser(["sudo", "-u", current_username, "proxychains", "google-chrome", "--no-sandbox"])
                 elif os.path.exists("/usr/bin/firefox"):
                     browser_process = launch_browser(["sudo", "-u", current_username, "proxychains", "firefox", "--no-sandbox"])
